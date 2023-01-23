@@ -65,6 +65,19 @@ def show_correlation():
     sns.heatmap(corr, annot=True, cmap='coolwarm')
     st.pyplot()
 
+# Create a function to check for missing data
+def show_missing():
+    st.write("Missing Data")
+    st.write(df.isnull().sum())
+    sns.heatmap(df.isnull(), cbar=False)
+    st.pyplot()
+
+# Create a function to create pairplot
+def show_pairplot():
+    st.write("Pairplot")
+    sns.pairplot(data=df, hue='species')
+    st.pyplot()
+
 # Create a sidebar for selecting different types of plots and options for the data visualization
 st.sidebar.subheader("MENU - Explore the Iris dataset")
 dataset_info = st.sidebar.checkbox("Show dataset info")
