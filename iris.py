@@ -39,7 +39,7 @@ def show_plots():
         sns.scatterplot(x='sepal_length', y='sepal_width', hue='species',data=df)
         st.pyplot()
     elif plot_type == "Box Plot":
-        st.write('\033[1m' + "Box Plot")
+        st.write(bold "Box Plot")
         sns.boxplot(data=df, x='species', y='petal_length')
         st.pyplot()
     elif plot_type == "Violin Plot":
