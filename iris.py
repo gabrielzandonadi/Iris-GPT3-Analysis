@@ -26,6 +26,7 @@ def show_dataset_info():
 
 # Create a function to visualize the data using different types of plots
 def show_plots():
+    st.set_option('deprecation.showPyplotGlobalUse', False)
     plot_type = st.sidebar.selectbox("Select a plot type", ["Histogram", "Scatter Plot", "Box Plot","Violin Plot"])
     if plot_type == "Histogram":
         st.write("Histogram")
