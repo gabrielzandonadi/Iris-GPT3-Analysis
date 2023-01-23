@@ -99,3 +99,10 @@ if description:
 correlation = st.sidebar.checkbox("Show Correlation")
 if correlation:
     show_correlation()
+missing = st.sidebar.checkbox("Show Missing Data")
+if missing:
+    show_missing()
+
+pairplot = st.sidebar.checkbox("Show Pairplot")
+if pairplot:
+    show_pairplot()
