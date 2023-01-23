@@ -29,13 +29,13 @@ def show_plots():
     st.set_option('deprecation.showPyplotGlobalUse', False)
     plot_type = st.sidebar.selectbox("Select a plot type", ["Histogram", "Scatter Plot", "Box Plot","Violin Plot"])
     if plot_type == "Histogram":
-        st.write("Histogram")
+        st.write("**Histogram**")
         for col in df.columns[:-1]:
             st.write(f"Histogram of {col}")
             sns.histplot(data=df, x=col)
             st.pyplot()
     elif plot_type == "Scatter Plot":
-        st.write("Scatter Plot")
+        st.write("**Scatter Plot**")
         sns.scatterplot(x='sepal_length', y='sepal_width', hue='species',data=df)
         st.pyplot()
     elif plot_type == "Box Plot":
@@ -43,7 +43,7 @@ def show_plots():
         sns.boxplot(data=df, x='species', y='petal_length')
         st.pyplot()
     elif plot_type == "Violin Plot":
-        st.write("Violin Plot")
+        st.write("**Violin Plot**")
         sns.violinplot(x='species', y='petal_length', data=df)
         st.pyplot()
 
@@ -66,7 +66,7 @@ def show_correlation():
     st.pyplot()
 
 # Create a sidebar for selecting different types of plots and options for the data visualization
-st.sidebar.subheader("Explore the Iris dataset")
+st.sidebar.subheader("MENU - Explore the Iris dataset")
 dataset_info = st.sidebar.checkbox("Show dataset info")
 if dataset_info:
     show_dataset_info()
