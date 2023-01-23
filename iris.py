@@ -49,17 +49,17 @@ def show_plots():
 
 # Create a function to show the summary of the dataset
 def show_summary():
-    st.write("Summary of the dataset")
+    st.write("**Summary of the dataset**")
     st.write(df.describe())
 
 # Create a function to show the description of the dataset
 def show_description():
-    st.write("Description of the dataset")
+    st.write("**Description of the dataset**")
     st.write(df.describe(include='all'))
 
 # Create a function to show the correlation of the dataset
 def show_correlation():
-    st.write("Correlation of the dataset")
+    st.write("**Correlation of the dataset**")
     st.write(df.corr())
     corr = df.corr()
     sns.heatmap(corr, annot=True, cmap='coolwarm')
