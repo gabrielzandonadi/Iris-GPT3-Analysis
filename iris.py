@@ -27,7 +27,7 @@ def show_dataset_info():
 # Create a function to visualize the data using different types of plots
 def show_plots():
     st.set_option('deprecation.showPyplotGlobalUse', False)
-    plot_type = st.sidebar.selectbox("Select a plot type", ["Histogram", "Scatter Plot", "Box Plot","Violin Plot"])
+    plot_type = st.sidebar.selectbox("Select a plot type", ["Histogram", "Scatter Plot", "Box Plot","Violin Plot","Pairplot"])
     if plot_type == "Histogram":
         st.write("**Histogram**")
         for col in df.columns[:-1]:
@@ -46,7 +46,11 @@ def show_plots():
         st.write("**Violin Plot**")
         sns.violinplot(x='species', y='petal_length', data=df)
         st.pyplot()
-
+    elif plot_type == "Pairplot":
+        st.write("Pairplot")
+        sns.pairplot(data=df, hue='species')
+        st.pyplot()
+        
 # Create a function to show the summary of the dataset
 def show_summary():
     st.write("**Summary of the dataset**")
@@ -72,12 +76,6 @@ def show_missing():
     sns.heatmap(df.isnull(), cbar=False)
     st.pyplot()
 
-# Create a function to create pairplot
-def show_pairplot():
-    st.write("Pairplot")
-    sns.pairplot(data=df, hue='species')
-    st.pyplot()
-
 # Create a sidebar for selecting different types of plots and options for the data visualization
 st.sidebar.subheader("MENU - Explore the Iris dataset")
 dataset_info = st.sidebar.checkbox("Show dataset info")
@@ -99,10 +97,8 @@ if description:
 correlation = st.sidebar.checkbox("Show Correlation")
 if correlation:
     show_correlation()
+
 missing = st.sidebar.checkbox("Show Missing Data")
 if missing:
     show_missing()
 
-pairplot = st.sidebar.checkbox("Show Pairplot")
-if pairplot:
-    show_pairplot()
