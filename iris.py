@@ -47,7 +47,7 @@ def show_plots():
         sns.violinplot(x='species', y='petal_length', data=df)
         st.pyplot()
     elif plot_type == "Pairplot":
-        st.write("Pairplot")
+        st.write("**Pairplot**")
         sns.pairplot(data=df, hue='species')
         st.pyplot()
         
